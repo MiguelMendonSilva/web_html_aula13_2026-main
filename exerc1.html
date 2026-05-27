@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        window.onload = inicio;
+
+        function inicio(){
+            let botao = document.getElementById('botao');
+            botao.addEventListener('click', cadastrar);
+
+        }
+
+        function cadastrar(){
+            let placa = document.getElementById('placa');
+            let marca = document.getElementById('marca');
+            let modelo = document.getElementById('modelo');
+            let data = new Date();
+
+            let carro ={
+                data: data.getHours() + ":" + data.getMinutes(),
+                placa: placa.value,
+                marca: marca.value,
+                modelo: modelo.value,
+            }
+
+            let tabela = document.getElementById('tabela');
+            tabela.innerHTML += `
+            <td> ${carro.data} </td>
+            <td> ${carro.placa} </td>
+            <td> ${carro.marca} </td>
+            <td> ${carro.modelo} </td>
+            `
+            
+        
+            //console.log(data.getHours());
+            console.log(carro);
+
+
+        }
+
+
+    </script>
+
+
+
+
+
+
+<label for="">Placa: </label>
+<input type="text" id="placa">
+<br>
+<label for="">Marca:</label>
+<input type="text" id="marca">
+<br>
+<label for="">Modelo:</label>
+<input type="text" id="modelo">
+<br>
+<button id="botao">Cadastrar</button>
+<p id="saida"> </p>
+
+<table id="tabela">
+    <tr>
+        <th>Hora </th>
+        <th>Placa </th>
+        <th>Marca </th>
+        <th>Modelo </th>
+    </tr>
+
+    
+</table>
+
+
+</body>
+</html>
