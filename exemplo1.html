@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+    <script>
+        window.onload = inicio;
+
+        function inicio() {
+            let botao = document.getElementById('botao');
+            botao.addEventListener('click', cadastrar);
+        }
+
+        function cadastrar() {
+            let nome = document.getElementById('nome');
+            let quantidade = document.getElementById('qtd');
+            let validade = document.getElementById('validade');
+            console.log(validade.value);
+            let dia = document.getElementById('dia');
+            let mes = document.getElementById('mes');
+            let ano = document.getElementById('ano');  
+            let validadeDigitada = validade.value;
+            let tempo = validadeDigitada.split('-');
+
+            let produto = {
+                nome: nome.value,
+                quantidade: qtd.value,
+                validade : { 
+                    ano: tempo[0],
+                    mes: tempo[1],
+                    dia: tempo[2],
+                }
+            };
+
+            let saida = document.getElementById('saida');
+
+            saida.innerHTML += `Nome: ${produto.nome} <br> 
+            Quantidade: ${produto.quantidade} 
+            <br> Validade: ${produto.validade.mes} / ${produto.validade.ano}`;    
+            console.log(produto)
+
+        }
+    </script>
+</head>
+
+<body>
+    <label for="">Nome do produto:</label>
+    <input type="text" id="nome">
+    <br>
+    <label for="">Quantidade:</label>
+    <input type="text" id="qtd">
+    <br>
+    <label for="">Validade:</label>
+    <input type="date" id="validade">
+    <br>
+    <button id="botao">Cadastrar</button>
+    <p id="saida"> </p>
+
+
+</body>
+
+</html>
